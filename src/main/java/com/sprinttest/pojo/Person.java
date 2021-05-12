@@ -41,5 +41,11 @@ public class Person {
 	public void setPermanentAddress(Address permanentAddress) {
 		this.permanentAddress = permanentAddress;
 	}
+	
+	public void destroy() throws Exception {
+		// TODO Auto-generated method stub
+		System.out.println("Everything is destroyed");
+	}
+
 
 }

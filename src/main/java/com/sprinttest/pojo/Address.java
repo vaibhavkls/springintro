@@ -1,5 +1,8 @@
 package com.sprinttest.pojo;
 
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
+
 public class Address {
 	
 		private String houseNumber;
@@ -59,4 +62,17 @@ public class Address {
 			this.pinCode = pinCode;
 		}
 
+//		@Override
+//		public void afterPropertiesSet() throws Exception {
+//			// TODO Auto-generated method stub
+//			System.out.println("all properties are set");
+//		}
+
+		
+		public void afterPropertiesSetFromXML() throws Exception {
+			// TODO Auto-generated method stub
+			System.out.println("all properties are set");
+		} 
+		
+		
 }

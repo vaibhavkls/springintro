@@ -1,35 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-xmlns:context="http://www.springframework.org/schema/context"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xsi:schemaLocation="
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
 http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans.xsd
 http://www.springframework.org/schema/context
 http://www.springframework.org/schema/context/spring-context.xsd"
-xmlns:c="http://www.springframework.org/schema/c"
-xmlns:p="http://www.springframework.org/schema/p">
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:p="http://www.springframework.org/schema/p">
 
 
-<bean id="addressBean1" class="com.sprinttest.pojo.Address" >
-	<property name="houseNumber" value="3-4-178/3" ></property>
-	<property name="street" value="Queens Street"></property>
-	<property name="city" value="Hyderabad"></property>
-	<property name="state" value="Telanaga"></property>
-	<property name="country" value="India"></property>
-	<property name="pinCode" value="500028"></property>
-</bean>
-<bean id="addressBean2" class="com.sprinttest.pojo.Address"
-c:houseNumber="5-6-167/8" c:street="Kings Street"
-c:city="Hyderabad" c:state="Telangana" c:country="India"
-c:pinCode="500029" >
-</bean>
+	<bean id="addressBean1" class="com.sprinttest.pojo.Address"
+		scope="prototype" init-method="afterPropertiesSetFromXML">
+		<property name="houseNumber" value="3-4-178/3"></property>
+		<property name="street" value="Queens Street"></property>
+		<property name="city" value="Hyderabad"></property>
+		<property name="state" value="Telanaga"></property>
+		<property name="country" value="India"></property>
+		<property name="pinCode" value="500028"></property>
+	</bean>
+	<bean id="addressBean2" class="com.sprinttest.pojo.Address"
+		c:houseNumber="5-6-167/8" c:street="Kings Street" c:city="Hyderabad"
+		c:state="Telangana" c:country="India" c:pinCode="500029">
+	</bean>
 
 
-<bean id="personBean" class="com.sprinttest.pojo.Person">
-	<constructor-arg name="adharCardNumber" value="786745352879"/>
-	<constructor-arg name="personName" value="Smith"/>
-	<constructor-arg name="residentialAddress" ref="addressBean1"/>
-	<constructor-arg name="permanentAddress" ref="addressBean2"/>
-</bean>
+	<bean id="personBean" class="com.sprinttest.pojo.Person"
+		destroy-method="destroy">
+		<constructor-arg name="adharCardNumber"
+			value="786745352879" />
+		<constructor-arg name="personName" value="Smith" />
+		<constructor-arg name="residentialAddress"
+			ref="addressBean1" />
+		<constructor-arg name="permanentAddress"
+			ref="addressBean2" />
+	</bean>
 </beans>

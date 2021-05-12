@@ -19,8 +19,12 @@ public class App {
 		
 		Address address1 = (Address) context.getBean("addressBean1");
 		System.out.println(address1);
+		Address address3 = (Address) context.getBean("addressBean1");
+		System.out.println(address3);
 		Address address2 = (Address) context.getBean("addressBean2");
 		System.out.println(address2);
+		Address address4 = (Address) context.getBean("addressBean2");
+		System.out.println(address4);
 		Person person = (Person) context.getBean("personBean");
 		System.out.println(person.getAdharCardNumber());
 		System.out.println(person.getPersonName());
