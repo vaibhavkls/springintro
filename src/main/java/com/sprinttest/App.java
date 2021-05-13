@@ -1,10 +1,13 @@
 package com.sprinttest;
 
+import java.util.Map;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.sprinttest.pojo.Address;
+import com.sprinttest.pojo.Country;
 import com.sprinttest.pojo.HelloWorld;
 import com.sprinttest.pojo.Person;
 
@@ -33,6 +36,12 @@ public class App {
 		HelloWorld helloWorld = (HelloWorld) context.getBean("helloBean");
 		helloWorld.printMessage();
 		
+		Country countryBean = (Country) context.getBean("countryBean");
+		System.out.println(countryBean.getListOfCountries());
+		Map mapOfCountries = countryBean.getMapOfCountries();
+		mapOfCountries.put("1", "US");
+		System.out.println(countryBean.getMapOfCountries());
+	
 		((AbstractApplicationContext) context).close();
 	}
 }

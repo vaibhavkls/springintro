@@ -42,4 +42,20 @@ http://www.springframework.org/schema/context/spring-context.xsd"
 		<constructor-arg name="permanentAddress"
 			ref="addressBean2" />
 	</bean>
+
+	<bean id="countryBean" class="com.sprinttest.pojo.Country">
+		<property name="listOfCountries">
+			<set>
+				<value>INDIA</value>
+				<value>UK</value>
+				<value>USA</value>
+				<value>USA</value>
+			</set>
+		</property>
+		<property name="mapOfCountries">
+			<map>
+				<entry key='1' value='India' />
+			</map>
+		</property>
+	</bean>
 </beans>
