@@ -59,13 +59,4 @@ public class Person implements BeanPostProcessor {
 		System.out.println("Everything is destroyed");
 	}
 
-	public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-		System.out.println("This happens before bean initialization");
-		return bean;
-	}
-	
-	public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-		System.out.println("This happens after bean initialization");
-		return bean;
-	}
 }

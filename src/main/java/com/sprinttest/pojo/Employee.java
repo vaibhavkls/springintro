@@ -4,6 +4,11 @@ public class Employee {
 	private String fullName;
 
 	private Department department;
+	
+	public Employee(Department dpt) {
+		// TODO Auto-generated constructor stub
+		this.department = department;
+	}
 
 	public Department getDepartment() {
 		return department;
