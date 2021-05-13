@@ -8,6 +8,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.sprinttest.pojo.Address;
 import com.sprinttest.pojo.Country;
+import com.sprinttest.pojo.Employee;
 import com.sprinttest.pojo.HelloWorld;
 import com.sprinttest.pojo.Person;
 
@@ -41,6 +42,9 @@ public class App {
 		Map mapOfCountries = countryBean.getMapOfCountries();
 		mapOfCountries.put("1", "US");
 		System.out.println(countryBean.getMapOfCountries());
+		
+		Employee emp = (Employee) context.getBean("employeeBean");
+		System.out.println(emp.getDepartment());
 	
 		((AbstractApplicationContext) context).close();
 	}
