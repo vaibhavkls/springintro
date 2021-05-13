@@ -10,6 +10,12 @@ http://www.springframework.org/schema/context/spring-context.xsd"
 	xmlns:c="http://www.springframework.org/schema/c"
 	xmlns:p="http://www.springframework.org/schema/p">
 
+	<import resource="spring-resource.xml" />
+
+	<bean id="helloBean" class="com.sprinttest.pojo.HelloWorld">
+		<constructor-arg index="0" value="${java.version}" />
+		<constructor-arg index="1" value="${stream}" />
+	</bean>
 
 	<bean id="addressBean1" class="com.sprinttest.pojo.Address"
 		scope="prototype" init-method="afterPropertiesSetFromXML">

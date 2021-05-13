@@ -5,6 +5,7 @@ import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.sprinttest.pojo.Address;
+import com.sprinttest.pojo.HelloWorld;
 import com.sprinttest.pojo.Person;
 
 /**
@@ -28,6 +29,9 @@ public class App {
 		Person person = (Person) context.getBean("personBean");
 		System.out.println(person.getAdharCardNumber());
 		System.out.println(person.getPersonName());
+		
+		HelloWorld helloWorld = (HelloWorld) context.getBean("helloBean");
+		helloWorld.printMessage();
 		
 		((AbstractApplicationContext) context).close();
 	}
