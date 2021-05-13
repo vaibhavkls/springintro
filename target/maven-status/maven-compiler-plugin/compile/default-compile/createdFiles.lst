@@ -1,0 +1,11 @@
+com\sprinttest\pojo\Person.class
+com\sprinttest\pojo\Address.class
+com\sprinttest\pojo\Employee.class
+com\sprinttest\Student.class
+com\sprinttest\pojo\HelloWorld.class
+com\sprinttest\pojo\Country.class
+com\sprinttest\App.class
+com\sprinttest\config\HelloWorldConfig2.class
+com\sprinttest\config\HelloWorldConfig.class
+com\sprinttest\pojo\Department.class
+com\sprinttest\AppTest.class

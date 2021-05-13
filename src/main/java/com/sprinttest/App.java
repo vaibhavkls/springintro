@@ -1,17 +1,11 @@
 package com.sprinttest;
 
-import java.util.Map;
-
-import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.sprinttest.pojo.Address;
-import com.sprinttest.pojo.Country;
-import com.sprinttest.pojo.Department;
-import com.sprinttest.pojo.Employee;
+import com.sprinttest.config.HelloWorldConfig;
+import com.sprinttest.config.HelloWorldConfig2;
 import com.sprinttest.pojo.HelloWorld;
-import com.sprinttest.pojo.Person;
 
 /**
  * Hello world!
@@ -21,8 +15,18 @@ public class App {
 	public static void main(String[] args) {
 		System.out.println("Hello World!");
 
-		ApplicationContext context = new ClassPathXmlApplicationContext("application-context.xml");
+		// ApplicationContext context = new
+		// ClassPathXmlApplicationContext("application-context.xml");
 
+		// Initialize java based configuration
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
+		context.register(HelloWorldConfig.class);
+		context.register(HelloWorldConfig2.class);
+		context.refresh();
+		HelloWorld helloWorld = (HelloWorld) context.getBean("helloBean");
+		helloWorld.printMessage();
+		HelloWorld helloWorld2 = (HelloWorld) context.getBean("helloBean2");
+		helloWorld2.printMessage();
 		/*
 		 * Address address1 = (Address) context.getBean("addressBean1");
 		 * System.out.println(address1); Address address3 = (Address)
@@ -47,9 +51,10 @@ public class App {
 //		System.out.println(dpt);
 //		Department dpt2 = (Department) context.getBean("departmentBean");
 //		System.out.println(dpt2);
-		Employee emp = (Employee) context.getBean("employeeBean");
-		System.out.println("Department from employee: " + emp.getDepartment());
-
+		/*
+		 * Employee emp = (Employee) context.getBean("employeeBean");
+		 * System.out.println("Department from employee: " + emp.getDepartment());
+		 */
 		((AbstractApplicationContext) context).close();
 	}
 }

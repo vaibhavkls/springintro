@@ -7,7 +7,7 @@ public class Employee {
 	
 	public Employee(Department dpt) {
 		// TODO Auto-generated constructor stub
-		this.department = department;
+		this.department = dpt;
 	}
 
 	public Department getDepartment() {
