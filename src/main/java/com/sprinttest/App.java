@@ -6,6 +6,7 @@ import org.springframework.context.support.AbstractApplicationContext;
 import com.sprinttest.config.HelloWorldConfig;
 import com.sprinttest.config.HelloWorldConfig2;
 import com.sprinttest.pojo.HelloWorld;
+import com.sprinttest.pojo.Person;
 
 /**
  * Hello world!
@@ -22,11 +23,18 @@ public class App {
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
 		context.register(HelloWorldConfig.class);
 		context.register(HelloWorldConfig2.class);
+		
+		/**
+		 * Why is a refresh needed at all for context?
+		 */
 		context.refresh();
-		HelloWorld helloWorld = (HelloWorld) context.getBean("helloBean");
-		helloWorld.printMessage();
-		HelloWorld helloWorld2 = (HelloWorld) context.getBean("helloBean2");
-		helloWorld2.printMessage();
+//		HelloWorld helloWorld = (HelloWorld) context.getBean("helloBean");
+//		helloWorld.printMessage();
+//		HelloWorld helloWorld2 = (HelloWorld) context.getBean("helloBean2");
+//		helloWorld2.printMessage();
+		
+		Person person = (Person) context.getBean("person");
+		System.out.println(person.getListOfAddresses());
 		/*
 		 * Address address1 = (Address) context.getBean("addressBean1");
 		 * System.out.println(address1); Address address3 = (Address)
