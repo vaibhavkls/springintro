@@ -6,7 +6,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.sprinttest</groupId>
-	<artifactId>yoyo</artifactId>
+	<artifactId>intro2spring</artifactId>
 	<version>1.0</version>
 
 	<name>yoyo</name>
